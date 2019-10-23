@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p v-if="attempting">Twitterでログインしています。</p>
+      <p v-if="attempting">Twitterでログインしています。{{success}}</p>
       <template v-else>
         <p>{{failedMessage}}</p>
       </template>
@@ -13,7 +13,8 @@
 export default {
   data () {
     return {
-      failedMessage: null
+      failedMessage: null,
+      success: null
     }
   },
   async mounted () {
@@ -28,6 +29,7 @@ export default {
       // this.$store.commit('setToken', { token: callbackData.data.access_token })
       // this.$store.commit('setUser', { user: callbackData.data.me })
       console.log(callbackData)
+      this.success="成功!!"
       // this.$router.replace('/')
     } catch (error) {
       console.log(error)
