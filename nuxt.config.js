@@ -40,8 +40,8 @@ export default {
   */
   modules: [
     '@nuxtjs/dotenv',
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     'cookie-universal-nuxt',
   ],
   /*
@@ -49,8 +49,11 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: process.env.API_URL, // ★ 追加 4.
-    credentials: true // ★ 追加 5.
+    credentials: true,
+    proxy: true,
+  },
+  proxy: {
+    '/api': process.env.API_URL,
   },
   /*
   ** Build configuration
