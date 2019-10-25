@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>Twitterへリダイレクトしています</p>
+    <p>{{twitterAuthUrl}}</p>
   </div>
 </template>
 
